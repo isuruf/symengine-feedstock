@@ -27,6 +27,7 @@ install:
       conda update --yes conda
       conda install --yes conda-build=1.20.0 jinja2 anaconda-client
       conda config --add channels conda-forge
+      conda config --add channels symengine
       conda config --set show_channel_urls true
       
 
@@ -35,4 +36,4 @@ script:
 
 after_success:
 
-  - ./ci_support/upload_or_check_non_existence.py ./recipe conda-forge --channel=main
+  - ./ci_support/upload_or_check_non_existence.py ./recipe symengine --channel=main

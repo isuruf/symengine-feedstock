@@ -51,6 +51,7 @@ install:
 
     - cmd: conda install -c pelson/channel/development --yes --quiet obvious-ci
     - cmd: conda config --add channels conda-forge
+    - cmd: conda config --add channels symengine
     - cmd: conda config --set show_channel_urls true
     - cmd: conda info
     - cmd: conda install -n root --quiet --yes conda-build anaconda-client jinja2 setuptools
@@ -66,4 +67,4 @@ test_script:
     - "%CMD_IN_ENV% conda build recipe --quiet"
 deploy_script:
 
-    - 'python ci_support\upload_or_check_non_existence.py .\recipe conda-forge --channel=main'
+    - 'python ci_support\upload_or_check_non_existence.py .\recipe symengine --channel=main'
